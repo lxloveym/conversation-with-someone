@@ -1,0 +1,228 @@
+<!-- 引入模板布局 -->
+{layout name="uekadmin"}
+<style>
+    .alert {
+        padding: 10px;
+        display: none;
+    }
+</style>
+<script src="/static/layer/layer.js"></script>
+
+<!-- 内容 -->
+<div class="col-md-10">
+
+    <ol class="breadcrumb">
+        <li><a href="{:url('index/index')}"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+        <li><a href="{:url('news/index')}">书籍管理</a></li>
+        <li class="active">书籍列表</li>
+
+        <button class="btn btn-primary btn-xs pull-right"><span class="glyphicon glyphicon-refresh"></span></button>
+    </ol>
+
+    <!-- 面版 -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{:url('news/add')}" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span> 添加书籍
+            </a>
+
+            <p class="pull-right tots">共有{$total}条数据</p>
+            <form action="" class="form-inline pull-right">
+                <div class="form-group">
+                    <input type="text" name="search" value="{$_GET['search']|default=''}" class="form-control" placeholder="请输入你要搜索的内容">
+                </div>
+
+                <input type="submit" value="搜索" class="btn btn-success">
+            </form>
+
+
+        </div>
+        <table class="table-bordered table table-hover">
+            <th><input type="checkbox" name="" class="all"></th>
+            <th>ID</th>
+            <th>书籍名称</th>
+            <th>书籍图片</th>
+            <th>书籍简介</th>
+            <th>所属分类</th>
+            <th>书籍作者</th>
+            <th>浏览量</th>
+            <th>点赞数</th>
+            <th>收藏数</th>
+            <th>创作时间</th>
+            <th>是否热门</th>
+            <th>书籍状态</th>
+            <th>操作</th>
+
+            {volist name="data" id="vo"}
+            <tr>
+                <td><input type="checkbox" name="" id="" value=""></td>
+                <td>{$vo.id}</td>
+                <td>{$vo.book_name}</td>
+                <td>
+                    {if condition="$vo['img'] neq null"}<img height="100px" width="200px" src="/upload/tmp/{$vo.img}" alt="">{else /}无{/if}
+                </td>
+                <td>{$vo.introduction}</td>
+                <td>{$vo.cid}</td>
+                <td>{$vo.author}</td>
+                <td>{$vo.click_num}</td>
+                <td>{$vo.click_good}</td>
+                <td>{$vo.collection}</td>
+                <td>{$vo.update_time?$vo.update_time:"还未更新"}</td>
+                <td>{if condition="$vo.is_hot == 1"}
+                    <!-- 点击后状态码变为1 -->
+                    <button class="btn btn-success" onclick="status(this,{$vo['id']},0)">是</button> {else /}
+                    <!-- 点击后状态码变为0 -->
+                    <button class="btn btn-danger" onclick="status(this,{$vo['id']},1)">否</button> {/if}</td>
+                <td>
+                    {if condition="$vo.status == 1"}
+                    <!-- 点击后状态码变为1 -->
+                    <button class="btn btn-success" onclick="status1(this,{$vo['id']},0)">显示</button> {else /}
+                    <!-- 点击后状态码变为0 -->
+                    <button class="btn btn-danger" onclick="status1(this,{$vo['id']},1)">不显示</button> {/if}
+                </td>
+                <td>
+                    <a href="javascript:;" onclick="find({$vo.id})" data-toggle="modal" data-target="#editAdmin" class="glyphicon glyphicon-pencil"></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="javascript:;" onclick="del(this,{$vo.id})" class="glyphicon glyphicon-trash"></a>
+                </td>
+            </tr>
+            {/volist}
+
+
+
+
+        </table>
+
+        <!-- 分页效果 -->
+        <div class="panel-footer">
+            <nav style="text-align:center;">
+                {$page}
+            </nav>
+
+        </div>
+
+    </div>
+</div>
+<!-- 修改页面的摸态框 -->
+<div class="modal fade" id="editAdmin">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改书籍内容</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{:url('News/ajax_save')}" method="post" enctype="multipart/form-data" id="editAdminForm">
+                </form>
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script>
+    function status(obj, id, is_hot) {
+        $.post("{:url('News/ajax_status')}", {
+            id: id,
+            is_hot: is_hot
+        }, function(data) {
+            location.reload();
+            $("#editAdminForm").html(data);
+        })
+    }
+
+    function status1(obj, id, status) {
+        $.post("{:url('News/ajax_status')}", {
+            id: id,
+            status: status
+        }, function(data) {
+            location.reload();
+            $("#editAdminForm").html(data);
+        })
+    }
+
+    function find(id) {
+        $.post("{:url('News/ajax_find')}", {
+            id: id
+        }, function(data) {
+            $("#editAdminForm").html(data);
+        })
+    }
+
+    // 无刷新的删除
+
+    function del(obj, id) {
+        //询问框
+
+        layer.confirm('您确认要删除？', {
+            btn: ['确认', '取消'] //按钮
+        }, function() {
+            // 发送ajax请求删除
+
+            $.get("{:url('News/del')}", {
+                id: id
+            }, function(data) {
+
+                // 判断返回值
+                if (data == 1) {
+                    layer.msg('删除成功');
+                    $(obj).parent().parent().remove();
+                    layer.close();
+
+                } else {
+                    layer.msg('删除失败');
+                    layer.close();
+                }
+            })
+        }, function() {
+            // 取消按钮相关处理
+            layer.close();
+        });
+
+
+    }
+    // 删除所有的方法
+
+    function delAll(img) {
+        //询问框
+
+        layer.confirm('您确认要删除？', {
+            btn: ['确认', '取消'] //按钮
+        }, function() {
+            // 确认按钮相关的处理
+            let checkbox = $("[type=checkbox]:checked").not(".all");
+
+            let str = "";
+            checkbox.each(function() {
+                str += $(this).val() + ',';
+            });
+
+            // 发送ajax请求删除
+
+            $.get("{:url('News/ajax_delAll')}", {
+                str: str,
+                img
+            }, function(data) {
+                // 判断是否删除成功
+
+                if (data == 1) {
+
+                    layer.msg('删除成功', {
+                        time: 1000
+                    }, function() {
+                        window.location.reload();
+                    });
+                } else {
+                    layer.msg('删除失败');
+                    layer.close();
+
+                }
+            })
+        }, function() {
+            // 取消按钮相关处理
+            layer.close();
+        });
+    }
+</script>

@@ -1,0 +1,104 @@
+{include file='../application/index/view/common.html'/}
+<div class="zong">
+    <!-- 个人中心 -->
+    <div class="mine">
+        <div class="bg">
+            <div class="tou">
+                {if condition="isset($name) && $name['user_image'] neq null"}<img src="/upload/user/{$name['user_image']}" alt="" style="width: 100%;height: 100%;border-radius: 50%;">{else /}<img src="/upload/user/head.jpg" alt="" style="width: 100%;height: 100%;border-radius: 50%;">{/if}
+            </div>
+            {if condition="isset($name)"}
+            <!-- <form action="" class="go">
+                <input type="file" name="user_image">
+                <input type="submit" value="上传">
+            </form> -->
+            {/if}
+        </div>
+        <div class="mysaid">
+            <h4>个人资料</h4>
+            <div class="said5">
+                <div class="hd">
+                    {if condition="isset($name)"}
+                    <a href="{:url('findone',array('id'=>$name['id']))}" target="_blank"><button class="juan">编辑资料</button></a> {/if}
+                    <ul>
+                        <li>
+                            <h5>用户名：</h5> {if condition="isset($name)"}
+                            <p>{$name.username}</p>{else /}
+                            <p>游客</p>{/if}
+                        </li>
+                        <li>
+                            <h5>个性签名：</h5> {if condition="isset($name)"}
+                            <p>{$name.autograph}</p>{else /}
+                            <p>无</p>{/if}
+                        </li>
+                        <li>
+                            <h5>昵称：</h5> {if condition="isset($name)"}
+                            <p>{$name.nickname}</p>{else /}
+                            <p>无</p>{/if}
+                        </li>
+                        <li>
+                            <h5>上一次浏览时长：</h5> {if condition="isset($name)"}
+                            <p>{$name.last_time}小时</p>{else /}
+                            <p>游客未统计</p>{/if}
+                        </li>
+                    </ul>
+                    {if condition="isset($name)"}
+                    <div class="tu" style="width: var(--main-width);height: 400px;background: rgba(0, 0, 0, 0.5);margin-top: 40px;display:block;">
+                    </div>
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.querySelector('.tu'));
+                        var last_time = JSON.parse(atob("{:base64_encode(json_encode($name['last_time']))}"));
+                        var year = JSON.parse(atob("{:base64_encode(json_encode($time['year']))}"));
+                        var mouth = JSON.parse(atob("{:base64_encode(json_encode($time['mouth']))}"));
+                        var day = JSON.parse(atob("{:base64_encode(json_encode($time['day']))}"));
+                        var option = {
+                            title: {
+                                text: '用户浏览时长可视化界面(首次登录浏览时长为0)',
+                                left: 'center',
+                                textStyle:{
+                                    color:'#fff'
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                left: 'left'
+                            },
+                            series: [{
+                                name: '浏览时长以小时为单位',
+                                type: 'pie',
+                                radius: '50%',
+                                data: [{
+                                    value: year,
+                                    name: '年浏览时长(退出登录后更新)',
+                                }, {
+                                    value: mouth,
+                                    name: '月浏览时长(退出登录后更新)'
+                                }, {
+                                    value: day,
+                                    name: '今日浏览时长(退出登录后更新)'
+                                }, {
+                                    value: last_time,
+                                    name: '上一次浏览时长'
+                                }, ],
+                                emphasis: {
+                                    itemStyle: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.7)'
+                                    }
+                                }
+                            }],
+                        };
+                        myChart.setOption(option);
+                    </script>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

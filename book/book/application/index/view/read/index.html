@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>"心灵的窗口"</title>
+    <link rel="stylesheet" href="/cssone/read.css">
+    <link rel="stylesheet" href="/cssone/base.css">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+
+    <script src="/jsone/jquery.min.js"></script>
+    <script src="/jsone/index.js"></script>
+</head>
+
+<body>
+    <!-- 页面浏览计时 -->
+    <!--<div class="timew" blur>-->
+    <!--    <div class="time">-->
+    <!--        <div class="run">-->
+                <!-- 改动 -->
+    <!--            <div class="circle">-->
+    <!--                快捷操作-->
+    <!--            </div>-->
+                <!-- 改动 -->
+    <!--        </div>-->
+    <!--        {if condition="!isset($name)"}-->
+    <!--        <h4>登录记录浏览时长</h4>-->
+    <!--        {else /}-->
+    <!--        <h4>结算浏览时长</h4>-->
+    <!--        {/if}-->
+    <!--        <div class="realt">-->
+    <!--            <ul>-->
+    <!--                {if condition="isset($name)"}-->
+    <!--                <a href="{:url('/index/loginout')}">-->
+    <!--                    <li>退出登录</li>-->
+    <!--                </a> {else /}-->
+    <!--                <a href="{:url('/index/login')}">-->
+    <!--                    <li>登录/注册</li>-->
+    <!--                </a> {/if}-->
+    <!--            </ul>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <div class="every">
+        <h2>进入阅读模式</h2>
+        <h1 class="last">{$data.book_name}</h1>
+        <h3>作者：{$data.author}</h3>
+        <p class="pp">
+            {$data.content}
+        </p>
+        <li>创作日期：{$data.create_time}</li>
+    </div>
+</body>
+
+</html>

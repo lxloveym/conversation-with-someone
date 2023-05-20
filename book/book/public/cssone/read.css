@@ -1,0 +1,218 @@
+body {
+    position: relative;
+    background: url(../images/2.jpg) no-repeat fixed center;
+    background-size: cover;
+    /* ss */
+    overflow: auto;
+    overflow-x: hidden;
+    /* background: #000; */
+}
+
+body::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.137);
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    border-radius: 2vw;
+}
+
+.timew {
+    position: fixed;
+    top: 40vh;
+    left: .5vh;
+    height: 14vh;
+    width: 14vh;
+    /* border: 1px solid plum; */
+    z-index: 12;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* 上面两句是磨砂盒子，在本身盒子的结构外面再套上一个盒子 */
+    overflow: hidden;
+    border-radius: 8vh;
+    transition: all .25s;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    /* opacity: .6; */
+    animation: timewmove 2s;
+    /* 动画 */
+    color: var(--color2);
+    box-shadow: 0 0 3vw .1vw rgba(0, 0, 0, 0.38);
+    /* 盒子阴影 */
+}
+
+@keyframes timewmove {
+    0% {
+        opacity: 0;
+        top: 100vh;
+    }
+}
+
+.timew:hover {
+    height: 28vh;
+    width: 20vh;
+    border-radius: 1vw;
+}
+
+.time {
+    /* position: fixed;
+    top: 200px;
+    left: 0; */
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid plum; */
+    z-index: 1;
+}
+
+.time .run {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 2vh;
+}
+
+.time .run img {
+    /* background-color: rgb(26, 26, 26); */
+    width: 100%;
+}
+
+.run .circle {
+    border-radius: 8vh;
+    width: 10vh;
+    height: 10vh;
+    font-size: 2vh;
+    font-weight: 900;
+    border: 2px solid #333;
+    /* background-color: rgb(26, 26, 26); */
+    display: grid;
+    place-items: center;
+}
+
+.time h4 {
+    height: 45px;
+    width: 100%;
+    line-height: 45px;
+    font-size: .8vw;
+    text-align: center;
+    /* color: #fff; */
+}
+
+.time .realt {
+    height: 60px;
+    width: 100%;
+}
+
+
+/* .time .realt ul {
+    display: flex;
+} */
+
+.time .realt ul li {
+    /* display: inline-block; */
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+    font-size: .8vw;
+    border: 2px solid grey;
+    border-radius: 12px;
+    /* color: #fff; */
+}
+
+.time .realt ul li:hover {
+    color: #338af1;
+}
+
+@keyframes navShow {
+    0% {
+        opacity: 0;
+    }
+}
+
+.every {
+    padding: 20px;
+    padding: 2vw 12vw;
+    margin: 0 auto;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+    /* opacity: .8; */
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    /* 上面两句背景模糊bdf()blur */
+    width: 100vw;
+    height: 100vh;
+    white-space: pre-wrap;
+    /* 按照文本自身段落适应 */
+}
+
+.every {
+    /* ss */
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.every::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.every::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.137);
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    border-radius: 2vw;
+}
+
+.every h2:first-child {
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-family: 华文宋体;
+    margin-bottom: 50px;
+    font-size: 34px;
+}
+
+.every h1 {
+    font-size: 34px;
+}
+
+.every h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.every .last {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-family: 华文宋体;
+}
+
+.every .pp {
+    line-height: 50px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.every p {
+    line-height: 40px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+}
+
+.every p span {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    line-height: 40px !important;
+}
+
+.every li {
+    float: right;
+    color: #fff;
+}

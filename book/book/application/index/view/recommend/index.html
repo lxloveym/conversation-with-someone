@@ -1,0 +1,43 @@
+{include file='../application/index/view/common.html'/}
+<div class="zong">
+    <!-- 智能推荐 -->
+    <div class="w">
+        <!--<div class="head">-->
+        <!--    <h2>猜你喜欢</h2>-->
+        <!--</div>-->
+        <div class="search2">
+            <ul>
+                {foreach name="recommend_data" item="val"}
+                <a href="{:url('read',array('id'=>$val['id']))}" target="_blank">
+                    <li blur>
+                        <div class="zuo1a">
+                            <h4>
+                            {if condition="$val.img neq null"}
+                            <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                            <img src="/images/not.jpg" alt=""> {/if}
+                            </h4>
+                            <h1>作者：{$val.author}</h1>
+                        </div>
+                        <div class="zhong1a">
+                            <h1>作品简介</h1>
+                            <p>
+                                {$val.introduction}
+                            </p>
+                        </div>
+                        <div class="you1a">
+                            {if condition="isset($name)"}
+                                <a href="{:url('add_cl',array('id' => $val['id']))}"><button>收藏</button></a> {else /}
+                                <a href="javascript:;"
+                                    style="pointer-events:none"><button style="pointer-events:none">请先登录</button></a> {/if}
+                        </div>
+                    </li>
+                </a>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

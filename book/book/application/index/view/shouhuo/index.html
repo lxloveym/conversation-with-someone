@@ -1,0 +1,38 @@
+{include file='../application/index/view/common.html'/}
+<div class="zong">
+    <!-- 美句 -->
+    <div class="goodsen">
+        <!-- 字幕 -->
+        <div class="zimu">
+            <!-- <ul class="markey">
+                <li>
+                    <h1>好记性不如烂笔头，</h1>
+                </li>
+                <li>
+                    <h1>喜欢就记下来；</h1>
+                </li>
+                <li>
+                    <h1>学习别人，</h1>
+                </li>
+                <li>
+                    <h1>突破自己。</h1>
+                </li>
+            </ul> -->
+        </div>
+        <!-- 名人名言 -->
+        <div class="mingyan">
+            <span class="san">
+                <h2>名人名言</h2>
+            </span>
+            <ul>
+                {foreach name="good_data" item="val"}
+                <li>{$val.content}</li>
+                {/foreach}
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

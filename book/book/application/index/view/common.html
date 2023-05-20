@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>"心灵的窗口"</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/cssone/content.css">
+    <script src="/jsone/jquery.min.js"></script>
+    <script src="/jsone/bootstrap.min.js"></script>
+    <script src="/jsone/index.js"></script>
+    <script src="/jsone/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 页面浏览计时 -->
+    <!--<div class="timew" blur>-->
+    <!--    <div class="time">-->
+    <!--        <div class="run">-->
+                 <!--改动 -->
+    <!--            <div class="circle">-->
+    <!--                快捷操作-->
+    <!--            </div>-->
+                 <!--改动 -->
+    <!--        </div>-->
+    <!--        {if condition="!isset($name)"}-->
+    <!--        <h4>登录记录浏览时长</h4>-->
+    <!--        {else /}-->
+    <!--        <h4>结算浏览时长</h4>-->
+    <!--        {/if}-->
+    <!--        <div class="realt">-->
+    <!--            <ul>-->
+    <!--                {if condition="isset($name)"}-->
+    <!--                <a href="{:url('/index/loginout')}">-->
+    <!--                    <li>退出登录</li>-->
+    <!--                </a> {else /}-->
+    <!--                <a href="{:url('/index/login')}">-->
+    <!--                    <li>登录/注册</li>-->
+    <!--                </a> {/if}-->
+    <!--            </ul>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!-- 导航栏 -->
+    <div class="nav" style="display:block;">
+        <ul>
+            <li {if condition="isset($one)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/index')}">首页</a></li>
+            <li {if condition="isset($two)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/recommend')}">猜你喜欢</a></li>
+            <!--<li {if condition="isset($three)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/collection')}">我的收藏</a></li>-->
+            <li {if condition="isset($four)" }style="border-bottom: 3px solid #444;" {/if}> <a href="{:url('/index/shouhuo')}">美句</a></li>
+            <!--{if condition="!isset($name)"}-->
+            <!--<li {if condition="isset($five)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/index/tree')}" >树洞</a></li>{else /}-->
+            <!--<li {if condition="isset($five)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/index/tree')}" target="_blank">树洞</a></li>{/if}-->
+            <li {if condition="isset($five)" }style="border-bottom: 3px solid #444" {/if}> <a href="http://120.26.61.97/">去树洞</a></li>
+            <!--<li {if condition="isset($six)" }style="border-bottom: 3px solid #444" {/if}> <a href="{:url('/index/user')}">个人中心</a></li>-->
+            <form action="{:url('/index/search')}" method="POST" enctype="multipart/form-data" class="search">
+                <input type="text" class="one" placeholder="更多精彩请搜索" name="keywords" required="required">
+                <button class="two" action="goto" type="submit">搜索</button>
+            </form>
+        </ul>
+    </div>

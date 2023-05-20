@@ -1,0 +1,882 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+button {
+    cursor: pointer;
+}
+
+h4 {
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    background: url(/images/two.jpg) no-repeat fixed center;
+    background-size: cover;
+    /* ss */
+    overflow: auto;
+    overflow-x: hidden;
+    /* background: #000; */
+}
+
+body::-webkit-scrollbar {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.137);
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    border-radius: 2vw;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 宋体;
+    display: block;
+}
+
+.timew {
+    position: absolute;
+    top: 30vh;
+    left: 1vh;
+    height: 12vh;
+    width: 16vh;
+    /* border: 1px solid plum; */
+    z-index: 12;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* 上面两句是磨砂盒子，在本身盒子的结构外面再套上一个盒子 */
+    overflow: hidden;
+    border-radius: 1vw;
+    transition: all .25s;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    /* opacity: .6; */
+    animation: timewmove 2s;
+    /* 动画 */
+    color: #333;
+    box-shadow: 0 0 3vw .1vw rgba(0, 0, 0, 0.38);
+    /* 盒子阴影 */
+}
+
+@keyframes timewmove {
+    0% {
+        opacity: 0;
+        top: 100vh;
+    }
+}
+
+.timew:hover {
+    height: 30vh;
+    width: 10vw;
+    border-radius: 1vw;
+}
+
+.time {
+    /* position: fixed;
+    top: 200px;
+    left: 0; */
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid plum; */
+    z-index: 1;
+}
+
+.time .run {
+    width: 100%;
+}
+
+.time .run img {
+    width: 100%;
+}
+
+.time h4 {
+    height: 45px;
+    width: 100%;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+
+.time .realt {
+    height: 60px;
+    width: 100%;
+}
+
+.time .realt ul {
+    display: flex;
+}
+
+.time .realt ul li {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 50px;
+    margin: 10px 2px 0 2px;
+    color: #fff;
+}
+
+.content,
+.hot {
+    position: relative;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.hot {
+    display: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    line-height: 50px;
+    width: 900px;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.neirong {
+    display: block;
+}
+
+.nav ul {
+    position: relative;
+    display: flex;
+}
+
+.nav ul li {
+    height: 50px;
+    text-align: center;
+    width: 75px;
+    margin-left: 5px;
+}
+
+.nav ul li:hover {
+    background-color: #333;
+}
+
+.nav ul li:first-child {
+    margin-left: 30px;
+}
+
+.nav ul li a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+}
+
+.nav ul li a:hover {
+    transform: scale(1.1);
+}
+
+.nav ul li:nth-child(4) {
+    margin-left: 380px;
+}
+
+.search {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search .one {
+    outline: none;
+    height: 30px;
+    width: 250px;
+    border: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+    padding-left: 2px;
+}
+
+.search .two {
+    border: 0;
+    background-color: rgb(12, 119, 251);
+    color: #fff;
+    height: 30px;
+    width: 80px;
+    border-radius: 0 5px 5px 0;
+    margin-right: 2px;
+    cursor: pointer;
+    transform: translate(-4px, 1px);
+}
+
+.h3 {
+    height: 200px;
+    width: 100%;
+    margin-top: 70px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+}
+
+.h3 .ju,
+.h3 .ju1 {
+    font-family: 华文行楷;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+    font-size: 35px;
+    color: #fff;
+}
+
+.global {
+    border-top: 5px solid #fff;
+}
+
+.main1 {
+    position: relative;
+    /* height: 430px; */
+    width: 100%;
+    margin-top: 100px;
+}
+
+.main1 ul {
+    width: 900px;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.main1 ul li {
+    height: 150px;
+    float: left;
+    border: 1px dashed grey;
+}
+
+.zuo1,
+.zhong1,
+.you1 {
+    float: left;
+    /* background-color: skyblue; */
+}
+
+.zuo1 {
+    margin-left: 25px;
+    margin-top: 10px;
+    width: 60px;
+    height: 130px;
+}
+
+.zuo1 h4 {
+    width: 100%;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.zuo h4 img {
+    width: 100%;
+    min-height: 100%;
+}
+
+.zuo1 h1 {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.zhong1 {
+    margin-top: 10px;
+    width: 130px;
+    height: 130px;
+    margin-left: 10px;
+}
+
+.zhong1 h1 {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.zhong1 p {
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    /* height: 100px; */
+    /* 上面四行代码实现多行文本超出部分显示省略号 */
+}
+
+.you1 {
+    width: 60px;
+    margin-left: 10px;
+    height: 130px;
+    margin-top: 110px;
+    margin-left: 12px;
+    padding-left: 5px;
+    /* padding: 135px 0px 0px 77px; */
+}
+
+.you1 button {
+    width: 50px;
+    height: 25px;
+    border-radius: 8px;
+    /* background-color: #46a9de; */
+    background: #428fed;
+    color: #fff;
+}
+
+
+/* .main1 ul li {
+    position: relative;
+    float: left;
+    height: 200px;
+    width: 32.2%;
+    border: 1px solid #ccc;
+    margin: 5px;
+    background-color: rgba(110, 107, 107, 0.863);
+}
+
+.main1 ul li span,
+.main1 ul li a {
+    display: inline-block;
+}
+
+.main1 ul li span {
+    height: 100%;
+    width: 40%;
+}
+
+.main1 ul li span img {
+    width: 100%;
+    height: 80%;
+}
+
+.main1 ul li span p {
+    display: inline-block;
+    width: 100%;
+    height: 20%;
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.main1 ul li a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 100%;
+    width: 60%;
+    overflow: auto;
+}
+
+.main1 ul li a h4 {
+    height: 15px;
+    width: 100%;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.main1 ul li a p {
+    color: #fff;
+}
+
+.main1 ul li button {
+    height: 30px;
+    width: 70px;
+    background-color: rgb(12, 119, 251);
+    color: #fff;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    border: none;
+    opacity: 0.8;
+} */
+
+.yi {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    color: #fff;
+}
+
+.footer {
+    border-radius: 18px;
+    margin-top: 100px;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer h2 {
+    height: 100px;
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    font-family: 华文宋体;
+}
+
+.zimu {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 800px;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.zimu ul {
+    width: 6400px;
+    height: 100%;
+    animation: move 30s linear infinite;
+}
+
+.zimu ul li {
+    width: 800px;
+    height: 100%;
+    line-height: 80px;
+    text-align: center;
+    float: left;
+}
+
+.zimu ul li h1 {
+    display: inline;
+    font-family: 华文行楷;
+    font-size: 35px;
+    color: #fff;
+}
+
+.catalogue {
+    position: relative;
+    width: 100%;
+    margin-top: 250px;
+}
+
+.catalogue ul {
+    width: 100%;
+}
+
+.catalogue ul li {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 5px;
+}
+
+.catalogue ul li .zuo {
+    width: 30%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.catalogue ul li .zuo img {
+    height: 100%;
+    width: 100%;
+}
+
+.catalogue ul li .you {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.catalogue ul li .you h4 {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.catalogue ul li .you p {
+    color: #fff;
+    height: 100px;
+    width: 100%;
+    overflow: auto;
+}
+
+.catalogue ul li .you button {
+    border: none;
+    height: 40px;
+    width: 100px;
+    background: #428fed;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 16px;
+    opacity: 0.8;
+    margin-top: 15px;
+    margin-left: 450px;
+}
+
+.catalogue .er {
+    position: absolute;
+    left: 0;
+    top: -40px;
+}
+
+.catalogue .er h2 {
+    font-weight: normal;
+    color: red;
+}
+
+.goodsen {
+    width: 900px;
+    margin: 0 auto;
+    display: none;
+}
+
+.goodsen .mingyan {
+    position: relative;
+    width: 100%;
+    margin-top: 250px;
+}
+
+.goodsen .mingyan ul {
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+}
+
+.goodsen .mingyan ul li {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: 华文宋体;
+    background-color: #333;
+    margin-bottom: 5px;
+}
+
+.goodsen .mingyan .san {
+    position: absolute;
+    left: 0;
+    top: -40px;
+}
+
+.goodsen .mingyan .san h2 {
+    font-weight: normal;
+    color: #fff;
+}
+
+.goodsen .said {
+    position: relative;
+    width: 100%;
+    margin-top: 250px;
+}
+
+.goodsen .said textarea {
+    position: absolute;
+    height: 100px;
+    width: 350px;
+    top: -100px;
+    left: 150px;
+    resize: none;
+    outline: none;
+    font-family: 华文宋体;
+    font-size: 16px;
+    color: #333;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid blue;
+}
+
+.goodsen .said ul {
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+}
+
+.goodsen .said ul li {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: 华文宋体;
+    background-color: #333;
+    margin-bottom: 5px;
+}
+
+.goodsen .said .san {
+    position: absolute;
+    left: 0;
+    top: -40px;
+}
+
+.goodsen .said .san h2 {
+    font-weight: normal;
+    color: #fff;
+}
+
+.goodsen .said .into {
+    position: absolute;
+    top: -30px;
+    left: 500px;
+}
+
+.goodsen .said .into button {
+    height: 30px;
+    width: 100px;
+    border: none;
+    background: #428fed;
+    border-radius: 12px;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.like {
+    width: 900px;
+    margin: 0 auto;
+    display: none;
+}
+
+.like .like_book {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.like .like_book ul {
+    display: flex;
+    width: 1800px;
+    animation: move 30s linear infinite;
+    cursor: pointer;
+}
+
+.like .like_book ul li {
+    width: 290px;
+    height: 200px;
+    margin: 0 5px 0 5px;
+}
+
+.like .like_book ul li img {
+    height: 100%;
+    width: 100%;
+}
+
+.like_book .mask:hover {
+    animation-play-state: paused;
+}
+
+.my_colect {
+    display: none;
+}
+
+.mine {
+    display: none;
+}
+
+.my_colect {
+    width: 900px;
+    margin: 0 auto;
+    display: none;
+}
+
+.my_colect .colect {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin-top: 200px;
+    overflow: auto;
+}
+
+.my_colect .colect ul {
+    width: 100%;
+}
+
+.my_colect .colect ul li {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.my_colect .colect ul li span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+}
+
+.my_colect .colect ul li span img {
+    width: 100%;
+    height: 70%;
+}
+
+.my_colect .colect ul li span p {
+    height: 48px;
+    width: 100%;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+}
+
+.my_colect .colect ul li a {
+    display: inline-block;
+    height: 100%;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    overflow: auto;
+}
+
+.my_colect .colect ul li a h4 {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.my_colect .colect ul li a p {
+    color: #fff;
+}
+
+.my_colect .colect ul li button {
+    border: none;
+    height: 40px;
+    width: 100px;
+    background: #428fed;
+    color: #fff;
+    border-radius: 12px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.mine {
+    width: 900px;
+    height: 800px;
+    margin: 0 auto;
+    display: none;
+}
+
+.mine .bg {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    background: url(../images/bg.webp) no-repeat;
+    background-size: cover;
+}
+
+.mine .bg .tou {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    left: 18%;
+    bottom: -75px;
+}
+
+.mine .bg .go {
+    position: absolute;
+    left: 35%;
+    bottom: 0;
+}
+
+.mine .bg .go input:last-child {
+    height: 30px;
+    width: 100px;
+    background-color: #373786;
+    color: #fff;
+    border: 0;
+    margin-left: -80px;
+    cursor: pointer;
+}
+
+.mine .mysaid {
+    height: 250px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.mine .mysaid h4 {
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-family: 华文宋体;
+    font-size: 24px;
+}
+
+.mine .mysaid .said5 {
+    height: 200px;
+    width: 100%;
+}
+
+.mine .mysaid .said5 .hd button {
+    height: 40px;
+    width: 120px;
+    background: #428fed;
+    border-radius: 12px;
+    border: 0;
+    color: #fff;
+    margin: 85px 0px 0px 175px;
+}
+
+.mine .mysaid .said5 .hd ul li {
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    color: #fff;
+}

@@ -1,0 +1,198 @@
+<!--<header blur>-->
+<!--    <h1>欢迎来到书的世界！</h1>-->
+<!--</header>-->
+{include file='../application/index/view/common.html'/}
+<div class="zong">
+    <!-- 首页 -->
+    <div class="content">
+        <div class="neirong">
+            <div class="h3">
+                <div class="nei-left" blur>
+                    <a href="#yi5">热门书籍</a>
+                    <a href="#yi1">文学类</a>
+                    <a href="#yi2">故事类</a>
+                    <a href="#yi3">青春校园类</a>
+                    <a href="#yi4">小说类</a>
+                </div>
+                <div class="nei-right">
+                    <div class="topText">
+                        <div style="font-family:宋体;">一杯淡茶，一本书；一缕阳光，一个人</div>
+                        <div style="font-family:宋体;">是生活，也是人生！</div>
+                    </div>
+                    <img src="/imagesone/three.webp" alt="">
+                </div>
+            </div>
+            <div class="main1 global">
+                <div class="linkto" id="yi5"></div>
+                <span class="yi">
+                    <h2>热门书籍</h2>
+                </span>
+                <ol><a href="{:url('more',array('id'=>1))}" target="_blank">更多 >></a></ol>
+                <ul>
+                    {foreach name="hot_data" item="val"}
+                    <li blur>
+                        <a class="box_a" href="{:url('read',array('id' => $val['id']))}" target="_blank">
+                            <div class="zuo1">
+                                <h4>{if condition="$val.img neq null"}
+                                    <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                                    <img src="/images/not.jpg" alt="">{/if}</h4>
+                                <h1>{$val.author}</h1>
+                            </div>
+                            <div class="zhong1">
+                                <h1>作品简介</h1>
+                                <p>{$val.introduction}
+                                </p>
+                            </div>
+                        </a>
+                        <div class="you1">
+                            <!--{if condition="isset($name)"}-->
+                            <!--<button><a href="{:url('add_cl',array('id' => $val['id']))}">收藏</a></button> {else /}-->
+                            <!--<button style="pointer-events:none"><a href="javascript:;"-->
+                            <!--        style="pointer-events:none">请先登录</a></button> {/if}-->
+                            <button><a href="javascript:;">收藏</a></button>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="main1 global">
+                <div class="linkto" id="yi1"></div>
+                <span class="yi">
+                    <h2>文学类</h2>
+                </span>
+                <ol><a href="{:url('more',array('id'=>2))}" target="_blank">更多 >></a></ol>
+                <ul>
+                    {foreach name="wx_data" item="val"}
+                    <li blur>
+                        <a class="box_a" href="{:url('read',array('id' => $val['id']))}" target="_blank">
+                            <div class="zuo1">
+                                <h4>{if condition="$val.img neq null"}
+                                    <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                                    <img src="/images/not.jpg" alt="">{/if}</h4>
+                                <h1>{$val.author}</h1>
+                            </div>
+                            <div class="zhong1">
+                                <h1>作品简介</h1>
+                                <p>{$val.introduction}
+                                </p>
+                            </div>
+                        </a>
+                        <div class="you1">
+                            <!--{if condition="isset($name)"}-->
+                            <!--<button><a href="{:url('add_cl',array('id' => $val['id']))}">收藏</a></button> {else /}-->
+                            <!--<button style="pointer-events:none"><a href="javascript:;"-->
+                            <!--        style="pointer-events:none">请先登录</a></button> {/if}-->
+                            <button><a href="javascript:;">收藏</a></button>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="main1 global">
+                <div class="linkto" id="yi2"></div>
+                <span class="yi">
+                    <h2>故事类</h2>
+                </span>
+                <ol><a href="{:url('more',array('id'=>3))}" target="_blank">更多 >></a></ol>
+                <ul>
+                    {foreach name="gs_data" item="val"}
+                    <li blur>
+                        <a class="box_a" href="{:url('read',array('id' => $val['id']))}" target="_blank">
+                            <div class="zuo1">
+                                <h4>{if condition="$val.img neq null"}
+                                    <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                                    <img src="/images/not.jpg" alt="">{/if}</h4>
+                                <h1>{$val.author}</h1>
+                            </div>
+                            <div class="zhong1">
+                                <h1>作品简介</h1>
+                                <p>{$val.introduction}
+                                </p>
+                            </div>
+                        </a>
+                        <div class="you1">
+                            <!--{if condition="isset($name)"}-->
+                            <!--<button><a href="{:url('add_cl',array('id' => $val['id']))}">收藏</a></button> {else /}-->
+                            <!--<button style="pointer-events:none"><a href="javascript:;"-->
+                            <!--        style="pointer-events:none">请先登录</a></button> {/if}-->
+                                    <button><a href="javascript:;">收藏</a></button>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="main1 global">
+                <div class="linkto" id="yi3"></div>
+                <span class="yi">
+                    <h2>青春校园类</h2>
+                </span>
+                <ol><a href="{:url('more',array('id'=>4))}" target="_blank">更多 >></a></ol>
+                <ul>
+                    {foreach name="qc_data" item="val"}
+                    <li blur>
+                        <a class="box_a" href="{:url('read',array('id' => $val['id']))}" target="_blank">
+                            <div class="zuo1">
+                                <h4>{if condition="$val.img neq null"}
+                                    <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                                    <img src="/images/not.jpg" alt="">{/if}</h4>
+                                <h1>{$val.author}</h1>
+                            </div>
+                            <div class="zhong1">
+                                <h1>作品简介</h1>
+                                <p>{$val.introduction}
+                                </p>
+                            </div>
+                        </a>
+                        <div class="you1">
+                            <!--{if condition="isset($name)"}-->
+                            <!--<button><a href="{:url('add_cl',array('id' => $val['id']))}">收藏</a></button> {else /}-->
+                            <!--<button style="pointer-events:none"><a href="javascript:;"-->
+                            <!--        style="pointer-events:none">请先登录</a></button> {/if}-->
+                                    <button><a href="javascript:;">收藏</a></button>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="main1 global">
+                <div class="linkto" id="yi4"></div>
+                <span class="yi">
+                    <h2>小说类</h2>
+                </span>
+                <ol><a href="{:url('more',array('id'=>5))}" target="_blank">更多 >></a></ol>
+                <ul>
+                    {foreach name="xs_data" item="val"}
+                    <li blur>
+                        <a class="box_a" href="{:url('read',array('id' => $val['id']))}" target="_blank">
+                            <div class="zuo1">
+                                <h4>{if condition="$val.img neq null"}
+                                    <img src="/upload/tmp/{$val.img}" alt=""> {else /}
+                                    <img src="/images/not.jpg" alt="">{/if}</h4>
+                                <h1>{$val.author}</h1>
+                            </div>
+                            <div class="zhong1">
+                                <h1>作品简介</h1>
+                                <p>{$val.introduction}
+                                </p>
+                            </div>
+                        </a>
+                        <div class="you1">
+                            <!--{if condition="isset($name)"}-->
+                            <!--<button><a href="{:url('add_cl',array('id' => $val['id']))}">收藏</a></button> {else /}-->
+                            <!--<button style="pointer-events:none"><a href="javascript:;"-->
+                            <!--        style="pointer-events:none">请先登录</a></button> {/if}-->
+                                    <button><a href="javascript:;">收藏</a></button>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="footer" blur>
+                <h2>到底了哦，更多精彩请搜索哦！</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
